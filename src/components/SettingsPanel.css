@@ -1,40 +1,4 @@
-.App {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  font-family: "Arial", sans-serif;
-}
-
-.header {
-  background-color: #e9eaec;
-  color: #404040;
-  padding: 4px;
-  text-align: center;
-  font-size: 0.8rem;
-}
-
-.chatbot-flow {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.main-content {
-  display: flex;
-  flex-grow: 1;
-}
-
-.flow-wrapper {
-  flex-grow: 1;
-  position: relative;
-  background: #f4f4f4;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin: 10px;
-  padding: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
+/* Styles specific to the SettingsPanel component */
 .settings-panel {
   width: 300px;
   padding: 10px;
@@ -91,4 +55,40 @@ input[type="text"] {
   border-radius: 4px;
   margin-bottom: 10px;
   box-sizing: border-box;
+}
+.settings-panel .delete-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.settings-panel .delete-button:hover {
+  background-color: darkred;
+}
+
+.save-flow-button {
+  background-color: #28a745;
+  /* Green background for save flow */
+  margin-top: 10px;
+  padding: 20px 120px;
+  /* background-color: red; */
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  bottom: 8px;
+  right: 8px;
+  position: absolute;
+  /* width: 100%; */
+
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.save-flow-button:hover {
+  background-color: #218838; /* Darker green on hover */
 }
