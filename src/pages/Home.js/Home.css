@@ -1,0 +1,56 @@
+/* src/App.css */
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.chatbot-flow {
+  display: flex;
+  flex-grow: 1;
+}
+
+.nodes-panel {
+  width: 200px;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+  background: #f4f4f4;
+  overflow-y: auto;
+}
+
+.settings-panel,
+.settings-placeholder {
+  width: 300px;
+  padding: 10px;
+  border-left: 1px solid #ddd;
+  background: #f4f4f4;
+}
+
+.flow-wrapper {
+  flex-grow: 1;
+  position: relative;
+}
+
+.save-button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.save-button:hover {
+  background-color: #0056b3;
+}
+
+.description {
+  margin-bottom: 10px;
+}
+
+.dndnode {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  cursor: grab;
+}
