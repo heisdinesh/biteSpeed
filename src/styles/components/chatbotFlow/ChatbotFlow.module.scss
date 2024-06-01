@@ -1,0 +1,49 @@
+.chatbotFlow {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  .header {
+    background-color: #e9eaec;
+    color: #404040;
+    padding: 4px;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  .mainContent {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  .flowWrapper {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    position: relative;
+  }
+
+  .nodesPanel {
+    width: 200px;
+    padding: 10px;
+    border-right: 1px solid #ddd;
+    background: #f4f4f4;
+    overflow-y: auto;
+  }
+
+  .reactFlowNodeDefault {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid #ddd;
+  }
+
+  .reactFlowNodeDefaultSelected {
+    background-color: lightblue;
+    border: 2px solid blue;
+  }
+}

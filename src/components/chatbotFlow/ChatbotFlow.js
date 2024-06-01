@@ -9,8 +9,8 @@ import ReactFlow, {
 } from "reactflow";
 import "reactflow/dist/style.css";
 import SettingsPanel from "./SettingsPanel";
-import "./ChatbotFlow.css";
-import { Toaster, toast } from "react-hot-toast";
+import styles from "../../styles/components/chatbotFlow/ChatbotFlow.module.scss";
+import { toast } from "react-hot-toast";
 
 const initialNodes = [
   {
@@ -31,11 +31,13 @@ const ChatbotFlow = () => {
     []
   );
 
+  //  Function to drag a new message from settings panel to react flow.
   const onDragStart = (event, nodeType) => {
     event.dataTransfer.setData("application/reactflow", nodeType);
     event.dataTransfer.effectAllowed = "move";
   };
 
+  // Function to create a new node when dropped from the settings panel.
   const onDrop = (event) => {
     event.preventDefault();
 
@@ -55,15 +57,18 @@ const ChatbotFlow = () => {
     setNodes((nds) => nds.concat(newNode));
   };
 
+  // Function to identify the selected node to either edit the message or delete it.
   const onNodeClick = (event, node) => {
     setSelectedNode(node);
   };
 
+  // Function to delete the node (message) from the react flow.
   const handleDeleteNode = (nodeId) => {
     setNodes((nds) => nds.filter((n) => n.id !== nodeId));
     setSelectedNode(null);
   };
 
+  // Special styling to identify which node is selected.
   const nodeStyles = useMemo(() => {
     return nodes.map((node) => ({
       ...node,
@@ -74,10 +79,12 @@ const ChatbotFlow = () => {
     }));
   }, [nodes, selectedNode]);
 
+  // Function to deselect the node when clicked elsewhere apart from node.
   const handlePaneClick = () => {
     setSelectedNode(null);
   };
 
+  // Function to check whether all the target handles are connected.
   const validateNodes = () => {
     const invalidNodes = nodes.filter(
       (node) => !edges.some((edge) => edge.target === node.id)
@@ -90,13 +97,13 @@ const ChatbotFlow = () => {
   };
 
   return (
-    <div className="chatbot-flow">
-      <header className="header">
+    <div className={styles.chatbotFlow}>
+      <header className={styles.header}>
         <h1>BiteSpeed Chatbot Flow</h1>
       </header>
-      <div className="main-content">
+      <div className={styles.mainContent}>
         <div
-          className="flow-wrapper"
+          className={styles.flowWrapper}
           onDrop={onDrop}
           onDragOver={(event) => event.preventDefault()}
         >
@@ -124,7 +131,6 @@ const ChatbotFlow = () => {
           onSaveFlow={validateNodes}
         />
       </div>
-      <Toaster />
     </div>
   );
 };

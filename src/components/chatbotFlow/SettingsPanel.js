@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./SettingsPanel.css";
+import styles from "../../styles/components/chatbotFlow/SettingsPannel.module.scss";
 import toast from "react-hot-toast";
 
 const SettingsPanel = ({
@@ -8,10 +8,11 @@ const SettingsPanel = ({
   onDragStart,
   onDelete,
   setSelectedNode,
-  onSaveFlow, // Add onSaveFlow prop
+  onSaveFlow,
 }) => {
   const [text, setText] = useState("");
 
+  // Use effect to set the  text in input field, to edit the message.
   useEffect(() => {
     if (node) {
       setText(node.data.label);
@@ -23,7 +24,8 @@ const SettingsPanel = ({
     setText(value);
   };
 
-  const handleSubmit = () => {
+  // Function to save the message after edit
+  const handleSaveMessage = () => {
     setNodes((nds) =>
       nds.map((n) =>
         n.id === node.id ? { ...n, data: { ...n.data, label: text } } : n
@@ -33,12 +35,14 @@ const SettingsPanel = ({
     toast.success("Message updated successfully");
   };
 
-  const handleDelete = () => {
+  // Function to delete the message.
+  const handleDeleteMessage = () => {
     onDelete(node.id);
     setSelectedNode(null);
     toast.success("Message deleted successfully");
   };
 
+  // Function to guide users how to create a new node (message).
   const handleMessageClick = () => {
     toast.error("Please drag the message box into the plane.");
   };
@@ -48,10 +52,12 @@ const SettingsPanel = ({
   };
 
   return (
-    <aside className="settings-panel">
-      <div className="description">Drag a node to the pane on the left.</div>
+    <aside className={styles.settingsPanel}>
+      <div className={styles.description}>
+        Drag a node to the pane on the left.
+      </div>
       <div
-        className="dndnode"
+        className={styles.dndNode}
         onDragStart={(event) => onDragStart(event, "default")}
         onClick={handleMessageClick}
         draggable
@@ -60,24 +66,30 @@ const SettingsPanel = ({
       </div>
       {node && (
         <>
-          <div className="description">Edit the node text</div>
+          <div className={styles.description}>Edit the node text</div>
           <input type="text" value={text} onChange={onChange} />
-          <button type="button" onClick={handleSubmit} className="save-button">
-            Save Changes
-          </button>
-          <button
-            type="button"
-            onClick={handleDelete}
-            className="delete-button"
-          >
-            Delete Node
-          </button>
+          <div className={styles.buttonContainer}>
+            <button
+              type="button"
+              onClick={handleSaveMessage}
+              className={styles.saveButton}
+            >
+              Save Changes
+            </button>
+            <button
+              type="button"
+              onClick={handleDeleteMessage}
+              className={styles.deleteButton}
+            >
+              Delete Node
+            </button>
+          </div>
         </>
       )}
       <button
         type="button"
         onClick={handleSaveFlow}
-        className="save-flow-button"
+        className={styles.saveFlowButton}
       >
         Save Flow
       </button>

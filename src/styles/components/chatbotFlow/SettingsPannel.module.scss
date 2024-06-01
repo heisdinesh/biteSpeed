@@ -1,30 +1,44 @@
-/* Styles specific to the SettingsPanel component */
-.settings-panel {
+.settingsPanel {
   width: 300px;
   padding: 10px;
   border-left: 1px solid #ddd;
   background: #fff;
   box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+
+  .deleteButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+
+    &:hover {
+      background-color: darkred;
+    }
+  }
 }
 
-.dndnode {
+.dndNode {
   padding: 10px;
   border: 1px solid #ddd;
   background-color: #fff;
   border-radius: 4px;
   cursor: grab;
   transition: background-color 0.3s, transform 0.3s;
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
 }
 
-.dndnode:active {
-  transform: scale(0.98);
-}
-
-.dndnode:hover {
-  background-color: #f0f0f0;
-}
-
-.save-button {
+.saveButton {
   margin-top: 10px;
   padding: 10px 20px;
   background-color: #007bff;
@@ -33,17 +47,18 @@
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s, transform 0.3s;
-}
 
-.save-button:hover {
-  background-color: #0056b3;
-}
+  &:hover {
+    background-color: #0056b3;
+  }
 
-.save-button:active {
-  transform: scale(0.98);
+  &:active {
+    transform: scale(0.98);
+  }
 }
 
 .description {
+  margin-top: 20px;
   margin-bottom: 10px;
   color: #333;
 }
@@ -56,27 +71,11 @@ input[type="text"] {
   margin-bottom: 10px;
   box-sizing: border-box;
 }
-.settings-panel .delete-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: red;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s, transform 0.3s;
-}
 
-.settings-panel .delete-button:hover {
-  background-color: darkred;
-}
-
-.save-flow-button {
+.saveFlowButton {
   background-color: #28a745;
-  /* Green background for save flow */
   margin-top: 10px;
   padding: 20px 120px;
-  /* background-color: red; */
   color: white;
   border: none;
   cursor: pointer;
@@ -84,11 +83,15 @@ input[type="text"] {
   bottom: 8px;
   right: 8px;
   position: absolute;
-  /* width: 100%; */
-
   transition: background-color 0.3s, transform 0.3s;
+
+  &:hover {
+    background-color: #218838;
+  }
 }
 
-.save-flow-button:hover {
-  background-color: #218838; /* Darker green on hover */
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
